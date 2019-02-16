@@ -1,0 +1,68 @@
+{
+  "name": "webAppPhoneDemo",
+  "private": true,
+  "dependencies":
+  {
+    "jQuery": "^3.3.1",
+    "bootstrap": "^4.1.0",
+    "fontAwesome": "^5.0.10",
+    "masonry-layout": "^4.2.2",
+    "jquery-scrollLock": "^3.1.3",
+    "Unslider": "^2.0.1"
+  },
+  "overrides":
+  {
+    "jQuery":
+    {
+      "main": [
+        "dist/jquery.min.js"
+      ]
+    },
+    "Unslider":
+    {
+      "main": [
+        "src/js/unslider.js",
+        "src/css/*.less"
+      ]
+    },
+    "masonry-layout":
+    {
+      "main": [
+        "dist/masonry.pkgd.min.js"
+      ]
+    },
+    "bootstrap":
+    {
+      "main": [
+        "scss/bootstrap.scss"
+      ]
+    },
+    "jquery-scrollLock":
+    {
+      "main": [
+        "jquery-scrollLock.js"
+      ]
+    },
+    "fontAwesome":
+    {
+      "main": [
+        "web-fonts-with-css/scss/fontAwesome.scss",
+        "web-fonts-with-css/scss/fa-solid.scss",
+        "web-fonts-with-css/scss/fa-brands.scss",
+        "web-fonts-with-css/scss/fa-regular.scss",
+        "web-fonts-with-css/webfonts/*.*"
+      ]
+    }
+  },
+  "devDependencies":
+  {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "jQuery": "^3.3.1",
+    "bootstrap": "^4.1.0",
+    "fontAwesome": "^5.0.10",
+    "masonry-layout": "^4.2.2",
+    "jquery-scrollLock": "^3.1.3",
+    "Unslider": "^2.0.1"
+  }
+}

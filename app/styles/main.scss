@@ -1,0 +1,18 @@
+@function px2rem($px) {
+  $rem: 200px;
+  @return ($px/$rem)+rem;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body,
+html {
+  width: auto;
+  max-width: 750px;
+  min-width: 100%;
+  position: relative;
+  font-weight: 250;
+  overflow-x: hidden;
+}
