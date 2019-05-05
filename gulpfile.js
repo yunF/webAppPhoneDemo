@@ -46,11 +46,11 @@ function scripts() {
 
 
 function html() {
-    return src('app/**/*.html')
+    return src('app/*.html')
         .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
-        // .pipe($.if('*.js', $.uglify()))
-        // .pipe($.if('*.css', $.cssnano()))
-        // .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
+        .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.css', $.cssnano()))
+        .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
         .pipe(dest('dist'));
 }
 
@@ -104,7 +104,7 @@ function serve() {
     });
 
     watch([
-        'app/**/*.html',
+        'app/*.html',
         '.tmp/scripts/**/*.js',
         'app/images/**/*',
         '.tmp/fonts/**/*'
@@ -160,7 +160,7 @@ function Wiredep() {
         }))
         .pipe(dest('app/styles'));
 
-    src('app/**/*.html')
+    src('app/*.html')
         .pipe(wiredep({
             // exclude: ['bootstrap'],
             ignorePath: /^(\.\.\/)*\.\./
@@ -174,8 +174,9 @@ function build() {
 
 
 
+exports.Wiredep = parallel(wiredep_styles,wiredep_html);
 exports.serve = series(parallel(stylesSass, stylesLess, scripts, fonts), serve);
 exports.serveDist = serveDist;
 exports.serveTest = series(scripts, serveTest);
-exports.build = series(parallel(html, images, fonts, extras), serve);
-exports.default = series(clean, parallel(html, images, fonts, extras), serve);
+exports.build = series(parallel(series(stylesSass,stylesLess,scripts,html), images, fonts, extras));
+exports.default = series(clean, parallel(series(stylesSass,stylesLess,scripts,html), images, fonts, extras));
