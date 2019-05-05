@@ -12,8 +12,7 @@
   },
   "overrides":
   {
-    "jQuery":
-    {
+    "jQuery": {
       "main": [
         "dist/jquery.min.js"
       ]
